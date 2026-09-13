@@ -1,0 +1,29 @@
+// 示例 1：递归斐波那契 + 闭包计数器
+fn fib(n) {
+    if n < 2 { return n; }
+    return fib(n - 1) + fib(n - 2);
+}
+
+print("fib(10) =", fib(10));        // 55
+
+fn make_counter() {
+    let count = 0;
+    return fn() {                    // 闭包捕获外层 count
+        count = count + 1;
+        return count;
+    };
+}
+
+let next = make_counter();
+next();
+next();
+print("计数器:", next());            // 3
+
+// while 循环求 1..100 的和
+let sum = 0;
+let i = 1;
+while i <= 100 {
+    sum = sum + i;
+    i = i + 1;
+}
+print("1+2+...+100 =", sum);        // 5050

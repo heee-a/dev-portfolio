@@ -25,10 +25,10 @@
 
 | 文件 | 职责 |
 |---|---|
-| [react_agent/llm.py](react_agent/llm.py) | LLM 抽象：OpenAI 兼容端点（DeepSeek/Kimi/智谱通用）+ FakeLLM 脚本回放 |
-| [react_agent/tools.py](react_agent/tools.py) | 工具注册表：装饰器注册、签名自动生成 JSON Schema、AST 白名单安全计算器、只读 SQL 工具 |
-| [react_agent/agent.py](react_agent/agent.py) | ReAct 循环：协议解析、Observation 回填、格式纠错、最大步数保护、完整轨迹 |
-| [react_agent/memory.py](react_agent/memory.py) | 滑动窗口对话记忆 |
+| [llm.py](llm.py) | LLM 抽象：OpenAI 兼容端点（DeepSeek/Kimi/智谱通用）+ FakeLLM 脚本回放 |
+| [tools.py](tools.py) | 工具注册表：装饰器注册、签名自动生成 JSON Schema、AST 白名单安全计算器、只读 SQL 工具 |
+| [agent.py](agent.py) | ReAct 循环：协议解析、Observation 回填、格式纠错、最大步数保护、完整轨迹 |
+| [memory.py](memory.py) | 滑动窗口对话记忆 |
 | [demo_offline.py](demo_offline.py) | 离线演示：FakeLLM 脚本扮演模型，完整跑通三步循环 |
 | [cli.py](cli.py) | 交互式命令行（配好环境变量后接真实模型） |
 

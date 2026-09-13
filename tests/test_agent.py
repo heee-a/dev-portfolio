@@ -12,7 +12,7 @@ import pytest
 from agent import ReActAgent
 from llm import FakeLLM, Message
 from memory import ConversationMemory
-from tools import ToolRegistry, make_default_registry
+from tools import make_default_registry
 
 
 @pytest.fixture()

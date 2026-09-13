@@ -7,9 +7,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "cs" / "mini_lang")
 
 import pytest
 
-from interpreter import Interpreter, MiniRuntimeError, run_source
+from interpreter import MiniRuntimeError, run_source
 from lexer import MiniSyntaxError, tokenize
-from parser import parse
 
 
 def run(src: str):

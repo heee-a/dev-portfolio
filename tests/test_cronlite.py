@@ -6,9 +6,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "systems" / "cronlite"))
 
-import pytest
 
-from cron import CronError, is_valid, parse_cron
+from cron import is_valid, parse_cron
 from scheduler import Scheduler
 
 

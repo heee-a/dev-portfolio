@@ -8,9 +8,9 @@ import inspect
 import json
 import operator
 import sqlite3
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Callable
+from typing import Callable
 
 _PY_TO_JSON = {str: "string", int: "integer", float: "number", bool: "boolean"}
 

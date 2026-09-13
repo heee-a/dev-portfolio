@@ -12,6 +12,8 @@
 ### 🧱 [software/ 软件开发](software/)
 - **[Task API](software/README.md)** —— FastAPI 任务管理服务：三层架构、Pydantic 校验、
   分页搜索、Swagger 文档、端到端测试
+- **[异步采集器](software/async_fetcher/)** —— asyncio + aiohttp + 信号量并发 +
+  全局令牌间隔，与同步版同条件实测 **3.6× 加速**（toscrape 20 页，礼貌限速）
 - **[TUI 仪表盘](software/tui_dashboard/)** —— rich 终端面板：KPI 卡片/排行榜/
   条形图，读取真实采集数据（气象 39,456 天 + 空气 14,977 城市-日），支持 --watch 刷新
 - **[设计模式库](software/patterns/)** —— 10 个模式全部场景化落地：

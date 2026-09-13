@@ -19,6 +19,8 @@ classifiers = [
 ]
 dependencies = [
     "requests>=2.31",
+    "aiohttp>=3.9",
+    "rich>=13.0",
     "fastapi>=0.110",
     "uvicorn>=0.29",
     "pandas>=2.0",
@@ -34,3 +36,4 @@ packages = []   # 三个类别各自独立运行，无需打包安装；pytest �
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+asyncio_mode = "auto"

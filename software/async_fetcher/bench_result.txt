@@ -1,0 +1,3 @@
+sync=30.22s
+async=8.35s
+speedup=3.6x

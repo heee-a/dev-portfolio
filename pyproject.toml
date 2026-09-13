@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dev-portfolio"
+version = "0.1.0"
+description = "开发作品集：软件开发（FastAPI）/ AI 智能体（ReAct 框架）/ 算法专题"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "heee-a" }]
+keywords = ["fastapi", "react-agent", "algorithms", "portfolio"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "requests>=2.31",
+    "fastapi>=0.110",
+    "uvicorn>=0.29",
+    "pandas>=2.0",
+    "tabulate>=0.9",
+    "jieba>=0.42",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "httpx>=0.27"]
+
+[tool.setuptools]
+packages = []   # 三个类别各自独立运行，无需打包安装；pytest 通过 sys.path 自举
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

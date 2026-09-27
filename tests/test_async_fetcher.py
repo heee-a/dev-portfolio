@@ -1,9 +1,10 @@
-"""异步采集器测试：本地 TestServer，零外部依赖。"""
+"""异步采集器测试：本地 aiohttp TestServer，零外部网络依赖。"""
 
 import sys
 from pathlib import Path
 
 import pytest
+import pytest_asyncio
 from aiohttp import web
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "software" / "async_fetcher"))
@@ -11,12 +12,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "software" / "async
 from async_fetcher import AsyncFetcher  # noqa: E402
 
 
-@pytest.fixture()
+@pytest_asyncio.fixture
 async def server(tmp_path):
     async def ok_handler(request):
         return web.Response(text=f"page:{request.query.get('p', '0')}")
 
-    def boom_handler(request):
+    async def boom_handler(request):
         return web.Response(status=500, text="server error")
 
     app = web.Application()
@@ -35,7 +36,9 @@ async def server(tmp_path):
 async def test_fetch_writes_cache(server):
     base, tmp = server
     f = AsyncFetcher(cache_dir=tmp / "cache", concurrency=3, min_interval=0)
-    async with __import__("aiohttp").ClientSession() as session:
+    import aiohttp
+
+    async with aiohttp.ClientSession() as session:
         text = await f.get_text(session, f"{base}/ok?p=1")
     assert text == "page:1"
     assert len(list((tmp / "cache").glob("*.json"))) == 1
@@ -46,6 +49,8 @@ async def test_fetch_500_raises_after_retries(server):
     base, tmp = server
     f = AsyncFetcher(cache_dir=tmp / "cache", concurrency=3, min_interval=0,
                      max_retries=1)
-    async with __import__("aiohttp").ClientSession() as session:
+    import aiohttp
+
+    async with aiohttp.ClientSession() as session:
         with pytest.raises(RuntimeError):
             await f.get_text(session, f"{base}/boom")

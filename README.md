@@ -27,6 +27,12 @@ JSON Schema）、AST 白名单安全计算器、只读 SQL 工具、滑动窗口
 任意 OpenAI 兼容模型接入（DeepSeek/Kimi/智谱）、FakeLLM 离线测试与演示。
 → [README](ai-agents/README.md) · `python ai-agents/demo_offline.py`
 
+### 🧩 [cs/ 计算机科学基础](cs/)
+- **[JSON 解析器](cs/json_parser/)** —— 词法 + 递归下降 + 序列化从零实现：
+  全转义含代理对、错误行列号定位、minify/indent 双模式，与标准库 roundtrip 对照
+- **[限流器集合](systems/ratelimit/)** —— 令牌桶 / 滑动窗口 / 固定窗口三种语义
+  对比实现，时钟可注入精确测试，线程安全
+
 ### 🧮 [algorithms/ 算法](algorithms/)
 **六大专题 25+ 经典算法** —— 中文思路注释、面试追问点、参数化测试、实测性能
 基准（n=8000 时 O(n²) 比 O(n log n) 慢百倍）。

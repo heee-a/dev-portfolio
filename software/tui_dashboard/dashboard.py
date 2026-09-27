@@ -7,13 +7,12 @@
 """
 
 import argparse
-import sys
 from pathlib import Path
 
 import pandas as pd
 from rich import box
 from rich.bar import Bar
-from rich.console import Console, Group
+from rich.console import Console
 from rich.layout import Layout
 from rich.panel import Panel
 from rich.table import Table
